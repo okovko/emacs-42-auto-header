@@ -3,25 +3,25 @@
      '(
        "Short description: "
        "/* ************************************************************************** */" \n
-			 "/*                                                                            */" \n
-			 "/*                                                        :::      ::::::::   */" \n
-			 "/*   "
-			 (file-name-nondirectory (buffer-file-name))
-			 (substring (make-string 51 ? )
-									(length (file-name-nondirectory (buffer-file-name))))
-			 ":+:      :+:    :+:   */" \n
-			 "/*                                                    +:+ +:+         +:+     */" \n
-			 "/*   By: " (user-login-name) " <marvin@42.fr>"
-			 (substring (make-string 28 ? ) (length (user-login-name)))
-			 "+#+  +:+       +#+        */" \n
-			 "/*                                                +#+#+#+#+#+   +#+           */" \n
-			 "/*   Created: " (format-time-string "%Y/%m/%d %H:%M/%S") " by " (user-login-name)
-			 (substring (make-string 18 ? ) (length (user-login-name)))
-			 "#+#    #+#             */" \n
-			 "/*   Updated: " (format-time-string "%Y/%m/%d %H:%M:%S") " by " (user-login-name)
-			 (substring (make-string 17 ? ) (length (user-login-name)))
-			 "###   ########.fr       */" \n
-			 "/*                                                                            */" \n
+       "/*                                                                            */" \n
+       "/*                                                        :::      ::::::::   */" \n
+       "/*   "
+       (file-name-nondirectory (buffer-file-name))
+       (substring (make-string 51 ? )
+                  (length (file-name-nondirectory (buffer-file-name))))
+       ":+:      :+:    :+:   */" \n
+       "/*                                                    +:+ +:+         +:+     */" \n
+       "/*   By: " (user-login-name) " <marvin@42.fr>"
+       (substring (make-string 28 ? ) (length (user-login-name)))
+       "+#+  +:+       +#+        */" \n
+       "/*                                                +#+#+#+#+#+   +#+           */" \n
+       "/*   Created: " (format-time-string "%Y/%m/%d %H:%M/%S") " by " (user-login-name)
+       (substring (make-string 18 ? ) (length (user-login-name)))
+       "#+#    #+#             */" \n
+       "/*   Updated: " (format-time-string "%Y/%m/%d %H:%M:%S") " by " (user-login-name)
+       (substring (make-string 17 ? ) (length (user-login-name)))
+       "###   ########.fr       */" \n
+       "/*                                                                            */" \n
        "/* ************************************************************************** */" \n
        )))
 
@@ -48,7 +48,7 @@
     (replace-match (concat "/*   Updated: "
                            (format-time-string "%Y/%m/%d %H:%M:%S")
                            " by " (user-login-name)
-                         (substring (make-string 17 ? ) (length (user-login-name)))
+                           (substring (make-string 17 ? ) (length (user-login-name)))
                            "###   ########.fr       */"))))
 
 (defun my-42-header-replace ()
@@ -90,9 +90,9 @@
   (widen)
   (let (header lines)
     (condition-case my-simple-error
-				(setq header (buffer-substring-no-properties 1 891))
-			(my-simple-handler
-			 (my-42-header-replace)))
+      (setq header (buffer-substring-no-properties 1 891))
+      (my-simple-handler
+        (my-42-header-replace)))
     (setq lines (split-string header "\n"))
     (and (= 11 (length lines))
          (seq-every-p (lambda (e) (= 80 (length e))) lines)
@@ -107,8 +107,9 @@
 [0-9]\\{2\\}:[0-9]\\{2\\}:[0-9]\\{2\\} by .\\{18\\}#\\+#    #\\+#             \\*/" (nth 7 lines))
          (string-match "/\\*   Updated: [0-9]\\{4\\}/[0-9]\\{2\\}/[0-9]\\{2\\} \
 [0-9]\\{2\\}:[0-9]\\{2\\}:[0-9]\\{2\\} by .\\{17\\}###   ########\\.fr       \\*/" (nth 8 lines))
-     (string-match "/\\* \\{76\\}\\*/" (nth 9 lines))
-       (string-match "/\\* \\*\\{74\\} \\*/" (nth 10 lines)))))
+         (string-match "/\\* \\{76\\}\\*/" (nth 9 lines))
+         (string-match "/\\* \\*\\{74\\} \\*/" (nth 10 lines)))))
 
 (auto-insert-mode t)
 (add-hook 'c-mode-hook 'my-42-header)
+;; (provide '42-auto-header)
