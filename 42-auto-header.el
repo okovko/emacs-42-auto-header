@@ -112,4 +112,19 @@
 
 (auto-insert-mode t)
 (add-hook 'c-mode-hook 'my-42-header)
+
+;; basic configuration for 42 .c and .h files
+(defun my-c-mode-hook ()
+  (setq-default tab-width 4)
+  (setq-default indent-tabs-mode t)
+  (setq-default c-default-style "linux")
+  (c-set-offset 'substatement-open 0)
+  (setq-default c-basic-offset 4)
+  ;; buggy sometimes if you don't setq it as well
+  (setq c-basic-offset 4))
+(add-hook 'c-mode-hook 'my-c-mode-hook)
+
+(define-key c-mode (kbd "C-c r") 'my-42-header)
+(define-key c-mode (kbd "TAB") 'tab-to-tab-stop)
+
 ;; (provide '42-auto-header)
