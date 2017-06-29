@@ -14,5 +14,6 @@ place this file as ~/.emacs.d/init.el, if you do not have an init.el already
 if you have an existing init.el, just append the contents of emacs-42-auto-header.el to init.el
 
 
+ADVANCED:
 if you have split up your config into files, remember to add (provide '42-auto-header) at the end of the file,
 and place it in whichever directory you have your other .el files in
