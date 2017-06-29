@@ -15,7 +15,7 @@
        (substring (make-string 28 ? ) (length (user-login-name)))
        "+#+  +:+       +#+        */" \n
        "/*                                                +#+#+#+#+#+   +#+           */" \n
-       "/*   Created: " (format-time-string "%Y/%m/%d %H:%M/%S") " by " (user-login-name)
+       "/*   Created: " (format-time-string "%Y/%m/%d %H:%M:%S") " by " (user-login-name)
        (substring (make-string 18 ? ) (length (user-login-name)))
        "#+#    #+#             */" \n
        "/*   Updated: " (format-time-string "%Y/%m/%d %H:%M:%S") " by " (user-login-name)
