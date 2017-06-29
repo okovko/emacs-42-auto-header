@@ -124,7 +124,15 @@
   (setq c-basic-offset 4))
 (add-hook 'c-mode-hook 'my-c-mode-hook)
 
-(define-key c-mode (kbd "C-c r") 'my-42-header)
-(define-key c-mode (kbd "TAB") 'tab-to-tab-stop)
+;; basic configuration for whitespace mode to assist with norminette requirements
+(setq whitespace-style (quote (tab-mark space-mark face tabs spaces)))
+(setq whitespace-display-mappings
+	  '((space-mark 32 [9251] [46])
+		(tab-mark 9 [8594 9] [92 9])))
+(custom-set-faces
+ '(whitespace-space ((t (:bold t :foreground "red"))))
+ '(whitespace-tab ((t (:bold t :foreground "green")))))
 
-;; (provide '42-auto-header)
+(global-set-key (kbd "C-c r") 'my-42-header)
+(global-set-key (kbd "TAB") 'tab-to-tab-stop)
+(global-set-key (kbd "C-c w") 'whitespace-mode)
